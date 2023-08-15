@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import  Items  from "./MenuItems";
+import { MenuItem } from "./MenuItems";
 
 const variants = {
   open: {
@@ -10,14 +10,14 @@ const variants = {
   }
 };
 
-export const Navigation = () => (
-  <motion.ul variants={variants}>
-    {itemIds.map(i => (
-      <Items i={i} key={i} />
-    ))}
-  </motion.ul>
-);
-
-const itemIds = [0, 1];
-
-export default Navigation;
+export const Navigation = () => {
+    const itemIds = [0, 1];
+  
+    return (
+      <motion.ul variants={variants} className="w-full h-10">
+        {itemIds.map(i => (
+          <MenuItem key={i} i={i} />
+        ))}
+      </motion.ul>
+    );
+  };

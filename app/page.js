@@ -1,11 +1,13 @@
 "use client";
-import { motion, useCycle } from "framer-motion";
-import { useRef } from "react";
-import { useDimensions } from "./components/Use-dimension";
 import Card from "./components/Card";
 import Image from "next/image";
 import Link from "next/link";
-import Toggle from "./components/MenuToggle";
+
+// IMPORT MOTION FUNCTION
+import { useRef } from "react";
+import { motion, useCycle } from "framer-motion";
+import { useDimensions } from "./components/Use-dimension";
+import { MenuToggle } from "./components/MenuToggle";
 import { Navigation } from "./components/Navigation";
 
 const sidebar = {
@@ -47,32 +49,33 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <div className="h-screen w-screen flex flex-col justify-center items-center bg-[#85E6C5]">
-        <div className="flex gap-12">
-        <div className="">
+        <div className="flex fixed top-3 right-3">
           <motion.nav
             initial={false}
             animate={isOpen ? "open" : "closed"}
             custom={height}
             ref={containerRef}
+            className="flex justify-start gap-5 w-full h-full"
           >
             <motion.div className="background" variants={sidebar} />
             <Navigation />
-            <Toggle toggle={() => toggleOpen()} />
+            <MenuToggle toggle={() => toggleOpen()} className='w-5'/>
           </motion.nav>
         </div>
-        <div className="flex gap-10 items-center justify-between">
-          <div className="flex flex-col gap-5 items-center">
-            <motion.h1
-              className="text-4xl"
-              animate={{
-                y: 10,
-                color: "#4D3C77",
-              }}
-            >
-              Hola! Soy Lucas Chanquía
-            </motion.h1>
-            <p className="font-mono text-xl">Full Stack Developer</p>
-          </div>
+        <div className="flex gap-12">
+          <div className="flex gap-10 items-center justify-between">
+            <div className="flex flex-col gap-5 items-center">
+              <motion.h1
+                className="text-4xl"
+                animate={{
+                  x: 50,
+                  color: "#4D3C77",
+                }}
+              >
+                Hola! Soy Lucas Chanquía
+              </motion.h1>
+              <p className="font-mono text-xl">Full Stack Developer</p>
+            </div>
           </div>
 
           <Image
@@ -84,7 +87,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section>
+      <section id="aboutMe">
         <Link href="/about">
           <Image
             src="/images/Frame2.png"
@@ -109,7 +112,7 @@ export default function Home() {
           seguir entregando soluciones de alta calidad.{" "}
         </p>
       </section>
-      <section>
+      <section id="proyects">
         <Link href="/proyects">
           <Image
             src="/images/Frame1.png"
@@ -171,3 +174,6 @@ export default function Home() {
     </main>
   );
 }
+
+
+
