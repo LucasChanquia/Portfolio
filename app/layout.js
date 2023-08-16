@@ -1,7 +1,7 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Quicksand } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Quicksand({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Lucas Chanquía',
