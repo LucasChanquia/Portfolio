@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 const Path = props => (
   <motion.path
     fill="transparent"
@@ -10,7 +10,13 @@ const Path = props => (
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
+export const MenuToggle = ({ toggle }) => {
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar si el menú está abierto o cerrado
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen); // Cambiar el estado cuando se haga clic en el botón de alternancia
+  };
+  return (
   <button onClick={toggle}>
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
@@ -35,7 +41,7 @@ export const MenuToggle = ({ toggle }) => (
       />
     </svg>
   </button>
-);
+);}
 
 
    
