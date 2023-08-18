@@ -56,3 +56,11 @@ nav {
   z-index: 5 !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  /* Cambiar el color de fondo de ciertos elementos en el tema oscuro */
+  #dark, #proyacts, #contact {
+    background-color: black !important;
+  }
+}
+
+

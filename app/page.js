@@ -200,7 +200,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white dark:bg-black  rounded-t-3xl mx-[5%]">
+            <div id="dark" className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
               <h2 className="font-mono text-2xl my-5 dark:bg-white text-black">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
@@ -257,7 +257,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full md:mt-10 bg-white dark:bg-black  ">
+      <section id="proyects" className="w-full h-full md:mt-10">
         <Section>
           <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px]">
             Trabajos recientes
