@@ -1,39 +1,34 @@
 "use client";
-import Contact from "./components/Card";
+import Contact from "./components/Contact";
 import Image from "next/image";
 import Link from "next/link";
 
 // IMPORT MOTION FUNCTION
 import { useRef } from "react";
-import { motion, useCycle, useInView } from "framer-motion";
-import { useDimensions } from "./components/Use-dimension";
-import { MenuToggle } from "./components/MenuToggle";
-import { Navigation } from "./components/Navigation";
+import { motion, useScroll, useInView } from "framer-motion";
 
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: "circle(30px at 40px 40px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
+function Section({ children }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section ref={ref}>
+      <span
+        style={{
+          transform: isInView ? "none" : "translateX(-200px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
+        }}
+      >
+        {children}
+      </span>
+    </section>
+  );
+}
 
 export default function Home() {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
+  
+  const { scrollYProgress } = useScroll();
 
   const handleDownload = () => {
     const fileUrl = "/cv.pdf";
@@ -48,20 +43,34 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center ">
-      <div className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]">
-        <div className="flex absolute top-3 right-3">
-          <motion.nav
-            initial={false}
-            animate={isOpen ? "open" : "closed"}
-            custom={height}
-            ref={containerRef}
-            className="flex justify-start gap-5 w-full h-full"
-          >
-            <motion.div className="background" variants={sidebar} />
-            <Navigation />
-            <MenuToggle toggle={() => toggleOpen()} className="w-5" />
-          </motion.nav>
-        </div>
+
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-2 z-1 bg-[#E5384F] transform origin-left"
+        style={{ scaleX: scrollYProgress }}
+        id="scroll"
+      />
+
+      <div id="home" className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]">
+       
+          <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10  backdrop-blur-lg">
+            <ul className="flex gap-2 md:gap-10 justify-center items-center h-full">
+              <Link href='#home' className="focus:underline focus:text-[#E5384F]">
+              <li className="text-sm md:text-2xl font-semibold">Home</li>
+              
+              </Link>
+              <Link href='#aboutMe' className="focus:underline focus:text-[#E5384F]">
+              <li className="text-sm md:text-2xl font-semibold">Sobre mi </li>
+              </Link>
+              <Link href='#proyects' className="focus:underline focus:text-[#E5384F]">
+              <li className="text-sm md:text-2xl font-semibold">Proyectos </li>
+              </Link>
+              <Link href='#contact' className="focus:underline focus:text-[#E5384F]">
+              <li className="text-sm md:text-2xl font-semibold">Contacto</li>
+              </Link>
+            </ul>
+          </nav>
+         
+       
         <div className="flex flex-col gap-12 md:flex-row md:max-w-3xl">
           <div className="flex gap-10 items-center justify-between">
             <div className="flex flex-col gap-5 items-center text-center justify-items-center">
@@ -97,6 +106,7 @@ export default function Home() {
       </div>
 
       <section id="aboutMe">
+        <Section>
         <div className="bg-[#6E07F3]  md:w-screen md:h-screen grid grid-rows-2 md:gap-2">
           <div className="flex flex-col md:flex-row justify-center items-center justify-items-center md:ml-5">
             <div
@@ -183,15 +193,18 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Section>
       </section>
 
       <section id="proyects" className="w-full h-full ">
+        <Section>
         <h2 className="text-4xl font-bold text-center mt-10">
           Trabajos recientes
         </h2>
+      
 
         <div className="grid lg:grid-cols-2 justify-items-center mt-10 gap-8 items-center w-auto h-auto">
-          <div className="border-4 border-[#3BC3A4] w-screen h-auto md:w-[600px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
+          <div className="border-4 border-[#3BC3A4] w-screen h-auto md:w-[600px] md:h-[400px] rounded-xl bg-slate-300 relative  overflow-hidden group">
             <Image
               src="/images/livinng/livinng1.png"
               width={500}
@@ -282,12 +295,15 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </Section>
       </section>
 
-      <section className=" my-5 w-screen md:h-[auto]">
+      <section id="contact" className=" my-5 w-screen md:h-[auto]">
+        <Section>
         <div className="md:h-[100%] md:w-[80%] lg:w-[50%] flex justify-center items-center mx-auto ">
           <Contact />
         </div>
+        </Section>
       </section>
 
       <footer className="bg-black w-full h-full px-10 py-5">
@@ -318,7 +334,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          
+
           <button
             className="rounded-xl bg-[#BB7070] p-1 md:p-3 text-sm md:text-lg"
             onClick={handleDownload}
@@ -327,10 +343,10 @@ export default function Home() {
           </button>
         </div>
         <div className="my-4 text-center text-white">
-            <p >
-              © 2023 Copyright <span>Lucas Chanquía</span>
-            </p>
-          </div>
+          <p>
+            © 2023 Copyright <span>Lucas Chanquía</span>
+          </p>
+        </div>
       </footer>
     </main>
   );

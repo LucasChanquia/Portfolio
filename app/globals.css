@@ -41,3 +41,17 @@ body {
 #works{
   font-family: var(--font-principale) !important;
 }
+
+
+
+li:hover {
+  color: #E5384F;
+}
+
+nav {
+  z-index: 5 !important;
+}
+
+#scroll{
+  z-index: 5 !important;
+}
