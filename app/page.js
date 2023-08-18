@@ -82,7 +82,7 @@ export default function Home() {
         className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
       >
         <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg">
-          <ul className="flex gap-2 md:gap-10 justify-center items-center h-full">
+          <ul className="flex gap-2 md:gap-10 justify-center items-center h-full text-[#121212] dark:text-black">
             <Link href="#home" className="focus:underline focus:text-[#E5384F]">
               <li
                 className={`text-sm md:text-2xl font-semibold ${
@@ -200,7 +200,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold bg-white rounded-t-3xl mx-[5%] ">
+            <div className="text-center font-[inter] italic font-bold bg-white rounded-t-3xl mx-[5%] text-[#121212] dark:text-black ">
               <h2 className="font-mono text-2xl my-5">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
@@ -259,7 +259,7 @@ export default function Home() {
 
       <section id="proyects" className="w-full h-full md:mt-10 ">
         <Section>
-          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px]">
+          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-[#121212] dark:text-black">
             Trabajos recientes
           </h2>
 
