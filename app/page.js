@@ -85,8 +85,8 @@ export default function Home() {
           <ul className="flex gap-2 md:gap-10 justify-center items-center h-full ">
             <Link href="#home" >
               <li
-                className={`text-sm md:text-2xl font-semibold text-black ${
-                  currentSection === "home" ? "text-[#E5384F]" : ""
+                className={`text-sm md:text-2xl font-semibold  ${
+                  currentSection === "home" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
                 Home
@@ -96,8 +96,8 @@ export default function Home() {
               href="#aboutMe"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-black ${
-                  currentSection === "aboutMe" ? "text-[#E5384F]" : ""
+                className={`text-sm md:text-2xl font-semibold  ${
+                  currentSection === "aboutMe" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
                 Sobre mi{" "}
@@ -107,8 +107,8 @@ export default function Home() {
               href="#proyects"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-black ${
-                  currentSection === "proyects" ? "text-[#E5384F]" : ""
+                className={`text-sm md:text-2xl font-semibold  ${
+                  currentSection === "proyects" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
                 Proyectos{" "}
@@ -118,8 +118,8 @@ export default function Home() {
               href="#contact"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-black ${
-                  currentSection === "contact" ? "text-[#E5384F]" : ""
+                className={`text-sm md:text-2xl font-semibold  ${
+                  currentSection === "contact" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
                 Contacto
@@ -197,7 +197,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-gray-300 rounded-t-3xl mx-[5%]">
+            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
               <h2 className="font-mono text-2xl my-5 text-black">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
@@ -254,7 +254,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full  bg-gray-300">
+      <section id="proyects" className="w-full h-full">
         <Section>
           <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-black">
             Trabajos recientes
@@ -356,7 +356,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="contact" className=" py-5 w-screen md:h-[auto] bg-gray-300 ">
+      <section id="contact" className=" py-5 w-screen md:h-[auto] ">
         <Section>
           <div className="md:h-screen md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
             <Contact />
