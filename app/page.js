@@ -200,7 +200,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold bg-white dark:bg-black rounded-t-3xl mx-[5%]">
+            <div className="text-center font-[inter] italic font-bold bg-white dark:bg-black text-black rounded-t-3xl mx-[5%]">
               <h2 className="font-mono text-2xl my-5">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
