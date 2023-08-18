@@ -85,7 +85,7 @@ export default function Home() {
           <ul className="flex gap-2 md:gap-10 justify-center items-center h-full text-[#121212] dark:text-black">
             <Link href="#home" className="focus:underline focus:text-[#E5384F]">
               <li
-                className={`text-sm md:text-2xl font-semibold ${
+                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
                   currentSection === "home" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -97,7 +97,7 @@ export default function Home() {
               className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold ${
+                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
                   currentSection === "aboutMe" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -109,7 +109,7 @@ export default function Home() {
               className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold ${
+                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
                   currentSection === "proyects" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -121,7 +121,7 @@ export default function Home() {
               className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold ${
+                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
                   currentSection === "contact" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -200,8 +200,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div id="dark" className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
-              <h2 className="font-mono text-2xl my-5 dark:bg-white text-black">Stack tecnológico</h2>
+            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
+              <h2 className="font-mono text-2xl my-5 text-[#6E07F3]">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
@@ -259,7 +259,7 @@ export default function Home() {
 
       <section id="proyects" className="w-full h-full md:mt-10">
         <Section>
-          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px]">
+          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-[#E5384F]">
             Trabajos recientes
           </h2>
 

@@ -25,17 +25,18 @@
 body {
   font-family: var(--font-principal);
   color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(
+   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb)); */
+    rgb(var(--background-start-rgb));
 }
 
 #stack {
   font-family: var(--font-principal) !important;
   font-style: normal;
+  color: #6E07F3  ;
 }
 
 #works{
@@ -56,11 +57,6 @@ nav {
   z-index: 5 !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Cambiar el color de fondo de ciertos elementos en el tema oscuro */
-  #dark, #proyacts, #contact {
-    background-color: black !important;
-  }
-}
+
 
 
