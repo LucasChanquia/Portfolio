@@ -261,7 +261,7 @@ export default function Home() {
           </h2>
 
           <div className="grid lg:grid-cols-2 justify-items-center mt-10 gap-8 items-center w-auto h-auto">
-            <div className="border-4 border-[#3BC3A4] w-screen md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative  overflow-hidden group">
+            <div className="border-4 border-[#3BC3A4] w-[95%] md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative  overflow-hidden group">
               <Image
                 src="/images/livinng/livinng1.png"
                 width={500}
@@ -292,7 +292,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="border-4 border-[#3BC3A4] w-screen  md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
+            <div className="border-4 border-[#3BC3A4] w-[95%]  md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
               <Image
                 src="/images/foccus.png"
                 width={500}
@@ -321,7 +321,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="border-4 border-[#3BC3A4] w-screen md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
+            <div className="border-4 border-[#3BC3A4] w-[95%] md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
               <Image
                 src="/images/codepartners.png"
                 width={500}
