@@ -2,6 +2,7 @@
 import Contact from "./components/Contact";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 // IMPORT MOTION FUNCTION
 import { useRef } from "react";
@@ -26,8 +27,11 @@ function Section({ children }) {
   );
 }
 
+
 export default function Home() {
-  
+
+  const [currentSection, setCurrentSection] = useState("home");
+
   const { scrollYProgress } = useScroll();
 
   const handleDownload = () => {
@@ -40,6 +44,28 @@ export default function Home() {
     link.click();
     document.body.removeChild(link);
   };
+  
+  useEffect(() => {
+    const homeSection = document.getElementById("home");
+    const aboutMeSection = document.getElementById("aboutMe");
+    const proyectsSection = document.getElementById("proyects");
+    const contactSection = document.getElementById("contact");
+    
+    const handleScroll = () => {
+      if (homeSection && window.scrollY < aboutMeSection.offsetTop) {
+        setCurrentSection("home");
+      } else if (aboutMeSection && window.scrollY < proyectsSection.offsetTop) {
+        setCurrentSection("aboutMe");
+      } else if (proyectsSection && window.scrollY < contactSection.offsetTop) {
+        setCurrentSection("proyects");
+      } else {
+        setCurrentSection("contact");
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center ">
@@ -55,17 +81,17 @@ export default function Home() {
           <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10  backdrop-blur-lg">
             <ul className="flex gap-2 md:gap-10 justify-center items-center h-full">
               <Link href='#home' className="focus:underline focus:text-[#E5384F]">
-              <li className="text-sm md:text-2xl font-semibold">Home</li>
+              <li className={`text-sm md:text-2xl font-semibold ${currentSection === "home" ? "text-[#E5384F]" : ""}`}>Home</li>
               
               </Link>
               <Link href='#aboutMe' className="focus:underline focus:text-[#E5384F]">
-              <li className="text-sm md:text-2xl font-semibold">Sobre mi </li>
+              <li className={`text-sm md:text-2xl font-semibold ${currentSection === "aboutMe" ? "text-[#E5384F]" : ""}`}>Sobre mi </li>
               </Link>
               <Link href='#proyects' className="focus:underline focus:text-[#E5384F]">
-              <li className="text-sm md:text-2xl font-semibold">Proyectos </li>
+              <li className={`text-sm md:text-2xl font-semibold ${currentSection === "proyects" ? "text-[#E5384F]" : ""}`}>Proyectos </li>
               </Link>
               <Link href='#contact' className="focus:underline focus:text-[#E5384F]">
-              <li className="text-sm md:text-2xl font-semibold">Contacto</li>
+              <li className={`text-sm md:text-2xl font-semibold ${currentSection === "contact" ? "text-[#E5384F]" : ""}`}>Contacto</li>
               </Link>
             </ul>
           </nav>
@@ -141,7 +167,9 @@ export default function Home() {
           </div>
 
           <div className="text-center font-[inter] italic font-bold bg-white rounded-t-3xl mx-[5%] ">
+
             <h2 className="font-mono text-2xl my-5">Stack tecnológico</h2>
+
             <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2 md:gap-5 ">
               <div className="md:border-r-2 md:border-gray-200 lg:pr-5">
                 <Image
@@ -196,7 +224,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full ">
+      <section id="proyects" className="w-full h-full md:mt-10 ">
         <Section>
         <h2 className="text-4xl font-bold text-center mt-10">
           Trabajos recientes
@@ -300,7 +328,7 @@ export default function Home() {
 
       <section id="contact" className=" my-5 w-screen md:h-[auto]">
         <Section>
-        <div className="md:h-[100%] md:w-[80%] lg:w-[50%] flex justify-center items-center mx-auto ">
+        <div className="md:h-screen md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
           <Contact />
         </div>
         </Section>
