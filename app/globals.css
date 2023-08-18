@@ -14,13 +14,13 @@
   --font-principale: 'Comfortaa', cursive;
 } 
 
-/* @media (prefers-color-scheme: dark) {
+ @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-} */
+} 
 
 body {
   font-family: var(--font-principal);
@@ -36,7 +36,7 @@ body {
 #stack {
   font-family: var(--font-principal) !important;
   font-style: normal;
-  color: #6E07F3  ;
+  color: black ;
 }
 
 #works{

@@ -82,10 +82,10 @@ export default function Home() {
         className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
       >
         <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg">
-          <ul className="flex gap-2 md:gap-10 justify-center items-center h-full text-[#121212] dark:text-black">
-            <Link href="#home" className="focus:underline focus:text-[#E5384F]">
+          <ul className="flex gap-2 md:gap-10 justify-center items-center h-full ">
+            <Link href="#home" >
               <li
-                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
+                className={`text-sm md:text-2xl font-semibold text-black ${
                   currentSection === "home" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -94,10 +94,9 @@ export default function Home() {
             </Link>
             <Link
               href="#aboutMe"
-              className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
+                className={`text-sm md:text-2xl font-semibold text-black ${
                   currentSection === "aboutMe" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -106,10 +105,9 @@ export default function Home() {
             </Link>
             <Link
               href="#proyects"
-              className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
+                className={`text-sm md:text-2xl font-semibold text-black ${
                   currentSection === "proyects" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -118,10 +116,9 @@ export default function Home() {
             </Link>
             <Link
               href="#contact"
-              className="focus:underline focus:text-[#E5384F]"
             >
               <li
-                className={`text-sm md:text-2xl font-semibold text-[#2B4D66] ${
+                className={`text-sm md:text-2xl font-semibold text-black ${
                   currentSection === "contact" ? "text-[#E5384F]" : ""
                 }`}
               >
@@ -200,8 +197,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
-              <h2 className="font-mono text-2xl my-5 text-[#6E07F3]">Stack tecnológico</h2>
+            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-gray-300 rounded-t-3xl mx-[5%]">
+              <h2 className="font-mono text-2xl my-5 text-black">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
@@ -257,9 +254,9 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full md:mt-10">
+      <section id="proyects" className="w-full h-full  bg-gray-300">
         <Section>
-          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-[#E5384F]">
+          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-black">
             Trabajos recientes
           </h2>
 
@@ -359,7 +356,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="contact" className=" my-5 w-screen md:h-[auto] bg-white dark:bg-black ">
+      <section id="contact" className=" py-5 w-screen md:h-[auto] bg-gray-300 ">
         <Section>
           <div className="md:h-screen md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
             <Contact />
