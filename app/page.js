@@ -200,8 +200,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold bg-white dark:bg-black text-black rounded-t-3xl mx-[5%]">
-              <h2 className="font-mono text-2xl my-5">Stack tecnológico</h2>
+            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white dark:bg-black  rounded-t-3xl mx-[5%]">
+              <h2 className="font-mono text-2xl my-5 dark:bg-white text-black">Stack tecnológico</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
@@ -257,7 +257,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full md:mt-10 dark:bg-black ">
+      <section id="proyects" className="w-full h-full md:mt-10 bg-white dark:bg-black  ">
         <Section>
           <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px]">
             Trabajos recientes
@@ -359,7 +359,7 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="contact" className=" my-5 w-screen md:h-[auto]">
+      <section id="contact" className=" my-5 w-screen md:h-[auto] bg-white dark:bg-black ">
         <Section>
           <div className="md:h-screen md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
             <Contact />
