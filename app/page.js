@@ -1,5 +1,6 @@
 "use client";
-import Contact from "./components/Contact";
+import Contact from "./components/ContactEs";
+import ContactEn from './components/ContactEn'
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -29,6 +30,7 @@ function Section({ children }) {
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState("home");
+  const [language, setLanguage] = useState(false)
 
   const { scrollYProgress } = useScroll();
 
@@ -37,13 +39,14 @@ export default function Home() {
 
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.download = "CV LucasChanquía.pdf";
+    link.download = `${language !== true ? "CV LucasChanquía.pdf" : "CV LucasChanquiaEN.pdf"}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   useEffect(() => {
+    
     const homeSection = document.getElementById("home");
     const aboutMeSection = document.getElementById("aboutMe");
     const proyectsSection = document.getElementById("proyects");
@@ -65,6 +68,14 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const  handlerClickSpanish = ()=> {
+    setLanguage(false)
+  }
+
+  const handlerClickEnglish = () => {
+    setLanguage(true)
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center ">
       <div className="relative">
@@ -82,6 +93,7 @@ export default function Home() {
         className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
       >
         <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg">
+          <div className="flex justify-center"> 
           <ul className="flex gap-2 md:gap-10 justify-center items-center h-full ">
             <Link href="#home" >
               <li
@@ -100,7 +112,7 @@ export default function Home() {
                   currentSection === "aboutMe" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
-                Sobre mi{" "}
+                {` ${language !== true ? 'Sobre mi' : 'About me'}`}
               </li>
             </Link>
             <Link
@@ -111,7 +123,7 @@ export default function Home() {
                   currentSection === "proyects" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
-                Proyectos{" "}
+                {` ${language !== true ? 'Proyectos' : 'Projects'}`}
               </li>
             </Link>
             <Link
@@ -122,15 +134,27 @@ export default function Home() {
                   currentSection === "contact" ? "text-[#E5384F]" : "text-black"
                 }`}
               >
-                Contacto
+                {` ${language !== true ? 'Contacto' : 'Contact'}`}
               </li>
             </Link>
           </ul>
+          </div>
         </nav>
 
-        <div className="flex flex-col gap-12 md:flex-row md:max-w-3xl">
+        
+
+        <div className="flex flex-col gap-2 md:gap-12 md:flex-row md:w-screen justify-between">
+        <ul id="lang" className="relative md:left-5 text-sm md:text-2xl">
+            <li>
+              <button onClick={handlerClickSpanish}>ES</button>
+            </li>
+            <li>
+              <button onClick={handlerClickEnglish}>EN</button>
+            </li>
+          </ul>
           <div className="flex gap-10 items-center justify-between">
             <div className="flex flex-col gap-5 items-center text-center justify-items-center">
+              
               <motion.h1
                 className="text-xl font-bold md:text-4xl text-center w-full"
                 animate={{
@@ -138,10 +162,10 @@ export default function Home() {
                   color: "#4D3C77",
                 }}
               >
-                Hola! Soy Lucas Chanquía
+                {` ${language !== true ? 'Hola! Soy Lucas Chanquía' : "HI! I'm Lucas Chanquía"}`}
               </motion.h1>
               <motion.p
-                className="font-mono text-lg md:text-xl text-center"
+                className="font-mono text-lg md:text-xl text-center mb-5"
                 animate={{
                   x: 50,
                   color: "#000000",
@@ -157,14 +181,14 @@ export default function Home() {
             width={300}
             height={100}
             alt="ico avatar"
-            className="max-w-3xl:w-"
+            className="lg:relative right-[500px]"
           />
         </div>
       </div>
 
       <section id="aboutMe">
         <Section>
-          <div className="bg-[#6E07F3]  md:w-screen md:h-screen grid grid-rows-2 md:gap-2">
+          <div className="bg-[#6E07F3] md:w-screen md:h-screen grid grid-rows-2">
             <div className="flex flex-col md:flex-row justify-center items-center justify-items-center md:ml-5">
               <div
                 id="1"
@@ -179,26 +203,16 @@ export default function Home() {
               </div>
               <div
                 id="2"
-                className="text-[#BEB9DD] md:p-5 text-center text-base  font-semibold antialiased my-5  md:my-auto w-[70%] md:mr-10 h-[650px] md:h-auto"
+                className="text-[#BEB9DD] md:p-5 text-center text-base  font-semibold antialiased mt-5 md:my-auto w-[70%] md:mr-10 h-[500px] md:h-auto"
               >
                 <p className="h-auto md:text-lg lg:text-2xl">
-                  Soy un programador full stack con experiencia en desarrollo
-                  web lo que me permite crear soluciones completas y
-                  funcionales. Me especializo en el front-end, trabajando con
-                  tecnologías como HTML, CSS y JavaScript, con el objetivo de
-                  lograr aplicaciones atractivas e intuitivas para el cliente.
-                  Por el lado del back-end, utilizo Node.js y bases de datos
-                  posgreSQL para construir la lógica empresarial y gestionar los
-                  datos de manera eficiente. También estoy familiarizado con
-                  frameworks como React, Vite y NextJs. Estoy constantemente
-                  aprendiendo y adaptándome a las últimas tendencias
-                  tecnológicas para brindar soluciones de alta calidad.
+                  {`${ language !== true ? 'Soy un programador full stack con experiencia en desarrollo web, lo que me permite crear soluciones completas y funcionales. Me especializo en el front-end, trabajando con tecnologías como HTML, CSS y JavaScript. Por el lado del back-end, utilizo Node.js y Express. En bases de datos utilizo posgreSQL. También estoy familiarizado con frameworks como React, Vite y NextJs. Estoy constantemente aprendiendo y adaptándome a las últimas tendencias tecnológicas para brindar soluciones de alta calidad.' : 'I am a full stack programmer with experience in web development, which enables me to create comprehensive and functional solutions. My specialization lies in the front-end, working with technologies such as HTML, CSS, and JavaScript. On the back-end, I utilize Node.js and Express. For databases, I work with PostgreSQL. I am also familiar with frameworks like React, Vite, and Next.js. I am constantly learning and adapting to the latest technological trends to provide high-quality solutions.'}`}
                 </p>
               </div>
             </div>
 
-            <div className="text-center font-[inter] italic font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
-              <h2 className="font-mono text-2xl my-5 text-black">Stack tecnológico</h2>
+            <div className="text-center font-[inter] font-bold lg:h-screen bg-white rounded-t-3xl mx-[5%]">
+              <h2 className="font-mono text-lg  md:text-2xl my-5 text-black">{`${language !== true ? 'Stack tecnológico': 'Technological stack'}`}</h2>
 
               <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
@@ -210,11 +224,11 @@ export default function Home() {
                     className="rounded-3x1 mx-auto"
                   />
                   <h2 className="font-sans text-lg my-5 text-[#00A887]">
-                    {`Front End`}
+                    Front End
                   </h2>
                   <p id="stack">HTML | CSS | JavaScript | React | NextJs</p>
                   <h2 className="font-sans text-lg my-5 text-[#00A887] md:mt-10">
-                    Diseño UI/UX{" "}
+                    {`${language !== true ? 'Diseño UI/UX' : 'Design UI/UX'}`}
                   </h2>
                   <p id="stack" className="mb-10 md:mb-0">
                     Figma | Font Awesome | Bootstrap
@@ -244,7 +258,7 @@ export default function Home() {
                     className="rounded-3x1 mx-auto"
                   />
                   <h2 className="font-sans text-lg my-5 text-[#00A887]">
-                    Base de Datos
+                    {`${language !== true ? 'Base de Datos': 'Database'}`}
                   </h2>
                   <p id="stack">PosgreSQL | SQL</p>
                 </div>
@@ -257,7 +271,7 @@ export default function Home() {
       <section id="proyects" className="w-full h-full">
         <Section>
           <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-black">
-            Trabajos recientes
+            {`${language !== true ? 'Trabajos recientes' : 'Recent works'}`}
           </h2>
 
           <div className="grid lg:grid-cols-2 justify-items-center mt-10 gap-8 items-center w-auto h-auto">
@@ -276,16 +290,14 @@ export default function Home() {
                     id="works"
                     className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
                   >
-                    Livinng es una página que permite la reserva de hospedajes
-                    con una metodología de pago única ya que permite a sus
-                    usuarios sugerir el importe a pagar por noche{" "}
+                    {`${language !== true ? 'Livinng es una página que permite la reserva de hospedajes con una metodología de pago única ya que permite a sus usuarios sugerir el importe a pagar por noche' : '"Livinng" is a website that allows for lodging reservations with a unique payment methodology, as it enables its users to suggest the nightly payment amount.'}`}
                   </p>
                   <p className="font-mono text-xl font-bold text-black px-3 mb-2">
                     HTML | Taildwind CSS | JavaScript | NextJs{" "}
                   </p>
                   <Link href="https://livinng.vercel.app/" target="_blank">
                     <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                      {`Visitar página >`}
+                      {`${language !== true ? `Visitar página >` : `Visit page >`}`}
                     </button>
                   </Link>
                 </div>
@@ -307,15 +319,14 @@ export default function Home() {
                     id="works"
                     className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
                   >
-                    Foccus es una óptica que integra un e-commerce y un gestor
-                    de turnos para realizar el cambio o compra de gafas{" "}
+                    {`${language !== true ? 'Foccus es una óptica que integra un e-commerce y un gestor de turnos para realizar una actualización o compra de gafas' : '"Foccus" is an optical store that integrates an e-commerce platform and an appointment scheduler for making updates or purchasing eyeglasses.'}`}
                   </p>
                   <p className="font-mono text-xl font-bold text-black px-3 mb-2">
                     HTML | Taildwind CSS | JavaScript | NextJs{" "}
                   </p>
 
                   <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                    {`En proceso`}
+                  {`${language !== true ? `En proceso` : `In progress`}`}
                   </button>
                 </div>
               </div>
@@ -336,17 +347,14 @@ export default function Home() {
                     id="works"
                     className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
                   >
-                    Code Partners representa a un equipo de trabajo para
-                    proyectos a escala que necesiten personas capacitadas y de
-                    calidad que brinden una solución integral a los
-                    requerimientos del cliente{" "}
+                    {`${language !== true ? 'Code Partners representa a un equipo de trabajo para proyectos a escala que necesiten personas capacitadas y de calidad que brinden una solución integral a los requerimientos del cliente' : "Code Partners represents a teamwork for large-scale projects that require skilled and high-quality individuals to provide a comprehensive solution to the client's requirements."}`}
                   </p>
                   <p className="font-mono text-xl font-bold text-black px-3 mb-2">
                     HTML | Taildwind CSS | JavaScript | NextJs{" "}
                   </p>
                   <Link href="https://codepartners.com.co/" target="_blank">
                     <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                      {`Visitar página`}
+                    {`${language !== true ? `Visitar página >` : `Visit page >`}`}
                     </button>
                   </Link>
                 </div>
@@ -356,21 +364,18 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="contact" className=" py-5 w-screen md:h-[auto] ">
+      <section id="contact" className=" md:bg-[#6E07F3] py-5 w-screen md:h-[auto] mt-5 ">
         <Section>
-          <div className="md:h-screen md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
-            <Contact />
+          <div className="md:h-auto md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
+            {language !== true ? <Contact /> : <ContactEn />}
           </div>
         </Section>
       </section>
 
       <footer className="bg-[#00A887] w-full h-full px-10 py-5">
-        <div className="text-white flex justify-between items-end gap-10">
-          <div>
-            <h4 className="mb-3 flex justify-center text-black font-semibold">
-              Redes
-            </h4>
-            <div className="flex gap-2">
+        <div className="text-white flex  md:flex-col items-center gap-5">
+         
+            <div className="flex gap-1 items-center md:gap-12">
               <Link href="https://github.com/LucasChanquia/" target="_blank">
                 <Image
                   src="/images/github.png"
@@ -420,13 +425,13 @@ export default function Home() {
                 />
               </Link>
             </div>
-          </div>
+          
 
           <button
             className="rounded-xl bg-[#BB7070] p-1 md:p-3 text-sm text-black font-semibold"
             onClick={handleDownload}
           >
-            Descargar cv
+            {`${language !== true ? 'Descargar cv' : 'Download cv'}`}
           </button>
         </div>
         <div className="my-4 text-center text-black font-semibold">
