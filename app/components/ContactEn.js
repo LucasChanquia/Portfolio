@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import Swal from "sweetalert2";
+
 
 const ContactEn = () => {
   return (
@@ -9,7 +8,7 @@ const ContactEn = () => {
       <div className="bg-[#6E07F3] mx-3 rounded-2xl grid md:grid-cols-2 h-[800px] md:h-[500px] w-full">
         <div className="flex flex-col items-center justify-center p-5">
           <p className="text-white  text-center text-xl pl-4 md:pt-5">
-          Do you have any questions, ideas, or projects in mind? Don't hesitate to get in touch with me. I look forward to having the opportunity to collaborate with you and create something amazing!
+          {`Do you have any questions, ideas, or projects in mind? Don't hesitate to get in touch with me. I look forward to having the opportunity to collaborate with you and create something amazing!`}
           </p>
           <h2 className="text-white text-center text-xl font-bold pt-5">
           Contact me!

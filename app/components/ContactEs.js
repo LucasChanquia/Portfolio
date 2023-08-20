@@ -1,18 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import Swal from "sweetalert2";
 
-const showAlert = () => {
-  Swal.fire({
-    title: "Enviado con éxito",
-    text: "Te responderé a la brevedad, muchas gracias!",
-    icon: "success",
-    confirmButtonColor: "#17387e",
-    confirmButtonText: "Aceptar",
-    width: 400,
-  });
-};
 
 const Contact = () => {
   return (
