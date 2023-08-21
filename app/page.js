@@ -193,7 +193,7 @@ export default function Home() {
 
       <section id="aboutMe">
         <Section>
-          <div className="bg-[#6E07F3] md:w-screen md:h-screen grid grid-rows-2">
+          <div className="bg-[#6E07F3] md:w-screen md:max-h-[800px] lg:max-h-[850px]   grid grid-rows-2">
             <div className="flex flex-col md:flex-row justify-center items-center justify-items-center md:ml-5">
               <div
                 id="1"
@@ -279,9 +279,9 @@ export default function Home() {
         </Section>
       </section>
 
-      <section id="proyects" className="w-full h-full">
+      <section id="proyects" className="w-full h-full mt-10">
         <Section>
-          <h2 className="text-4xl font-bold text-center mt-10 lg:mb-[150px] text-black">
+          <h2 className="text-4xl font-bold text-center lg:mb-[150px] text-black">
             {`${language !== true ? "Trabajos recientes" : "Recent works"}`}
           </h2>
 
