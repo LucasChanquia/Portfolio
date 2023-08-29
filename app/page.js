@@ -4,6 +4,7 @@ import ContactEn from "./components/ContactEn";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Proyects from "./components/Proyects";
 
 // IMPORT MOTION FUNCTION
 import { useRef } from "react";
@@ -78,24 +79,29 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center ">
-      <div className="relative">
+    <main
+      id="main"
+      className="flex min-h-screen w-screen flex-col items-center"
+    >
+      <div
+        id="home"
+        className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
+      >
         <motion.div
-          className="fixed top-0 left-0 right-0 h-2 z-1 backdrop-blur-md"
+          className="fixed top-0 left-0 right-0 h-2 z-1 backdrop-blur-md w-full"
           style={{
             scaleX: scrollYProgress,
             background: "#E5384F",
           }}
           id="scroll"
         />
-      </div>
-      <div
-        id="home"
-        className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
-      >
-        <nav className="w-screen fixed top-0 z-0 mt-2 h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg">
+
+        <nav
+          id="nav"
+          className="w-full fixed top-0 z-0 mt-2  h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg"
+        >
           <div className="flex justify-center">
-            <ul className="flex gap-2 md:gap-10 justify-center items-center h-full ">
+            <ul className="flex gap-2 md:gap-10 justify-center items-center ">
               <Link href="#home">
                 <li
                   className={`text-sm md:text-2xl font-semibold  ${
@@ -143,15 +149,18 @@ export default function Home() {
         </nav>
 
         <div>
-            <ul id="lang" className="relative w-screen left-2 md:left-5 text-sm md:text-2xl">
-              <li>
-                <button onClick={handlerClickSpanish}>ES</button>
-              </li>
-              <li>
-                <button onClick={handlerClickEnglish}>EN</button>
-              </li>
-            </ul>
-          </div>
+          <ul
+            id="lang"
+            className="relative w-screen left-4 md:left-5 text-sm md:text-2xl"
+          >
+            <li>
+              <button onClick={handlerClickSpanish}>ES</button>
+            </li>
+            <li>
+              <button onClick={handlerClickEnglish}>EN</button>
+            </li>
+          </ul>
+        </div>
 
         <div className="flex flex-col gap-2 md:gap-12 md:flex-row md:w-screen justify-center">
           <div className="flex gap-10 items-center justify-between">
@@ -186,7 +195,7 @@ export default function Home() {
             width={300}
             height={100}
             alt="ico avatar"
-            className="lg:relative right-auto"
+            className="w-auto h-auto"
           />
         </div>
       </div>
@@ -285,115 +294,14 @@ export default function Home() {
             {`${language !== true ? "Trabajos recientes" : "Recent works"}`}
           </h2>
 
-          <div className="grid lg:grid-cols-2 justify-items-center mt-10 gap-8 items-center w-auto h-auto">
-            <div className="border-4 border-[#3BC3A4] w-[95%] md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative  overflow-hidden group">
-              <Image
-                src="/images/livinng/livinng1.png"
-                width={500}
-                height={500}
-                alt="Livinng"
-                className=" w-full h-full transition-opacity duration-300 ease-in-out group-hover:opacity-10 object-cover"
-              />
-              <div className="absolute inset-0 flex md:mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                <div className="text-white text-center overflow-y-scroll h-full items-center">
-                  <h2 className="text-2xl font-bold text-black mb-2">{`< Livinng />`}</h2>
-                  <p
-                    id="works"
-                    className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
-                  >
-                    {`${
-                      language !== true
-                        ? "Livinng es una página que permite la reserva de hospedajes con una metodología de pago única ya que permite a sus usuarios sugerir el importe a pagar por noche"
-                        : '"Livinng" is a website that allows for lodging reservations with a unique payment methodology, as it enables its users to suggest the nightly payment amount.'
-                    }`}
-                  </p>
-                  <p className="font-mono text-xl font-bold text-black px-3 mb-2">
-                    HTML | Taildwind CSS | JavaScript | NextJs{" "}
-                  </p>
-                  <Link href="https://livinng.vercel.app/" target="_blank">
-                    <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                      {`${
-                        language !== true ? `Visitar página >` : `Visit page >`
-                      }`}
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <Proyects language={language} />
 
-            <div className="border-4 border-[#3BC3A4] w-[95%]  md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
-              <Image
-                src="/images/foccus.png"
-                width={500}
-                height={500}
-                alt="Foccus"
-                className=" w-full h-full transition-opacity duration-300 ease-in-out group-hover:opacity-10 object-cover"
-              />
-              <div className="absolute inset-0 flex md:mt-10 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                <div className="text-white text-center overflow-y-scroll h-full">
-                  <h2 className="text-2xl font-bold text-black mb-2">{`< Foccus />`}</h2>
-                  <p
-                    id="works"
-                    className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
-                  >
-                    {`${
-                      language !== true
-                        ? "Foccus es una óptica que integra un e-commerce y un gestor de turnos para realizar una actualización o compra de gafas"
-                        : '"Foccus" is an optical store that integrates an e-commerce platform and an appointment scheduler for making updates or purchasing eyeglasses.'
-                    }`}
-                  </p>
-                  <p className="font-mono text-xl font-bold text-black px-3 mb-2">
-                    HTML | Taildwind CSS | JavaScript | NextJs{" "}
-                  </p>
-
-                  <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                    {`${language !== true ? `En proceso` : `In progress`}`}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-4 border-[#3BC3A4] w-[95%] md:w-[600px] h-[200px] md:h-[400px] rounded-xl bg-slate-300 relative overflow-hidden group">
-              <Image
-                src="/images/codepartners.png"
-                width={500}
-                height={500}
-                alt="codepartners"
-                className=" w-full h-full transition-opacity duration-300 ease-in-out group-hover:opacity-10"
-              />
-              <div className="absolute inset-0 flex md:mt-10 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-                <div className="text-white text-center overflow-y-scroll h-full">
-                  <h2 className="text-2xl font-bold text-black mb-2">{`< Code Partners />`}</h2>
-                  <p
-                    id="works"
-                    className="text-xl font-bold text-[#6E07F3] px-3 mb-2"
-                  >
-                    {`${
-                      language !== true
-                        ? "Code Partners representa a un equipo de trabajo para proyectos a escala que necesiten personas capacitadas y de calidad que brinden una solución integral a los requerimientos del cliente"
-                        : "Code Partners represents a teamwork for large-scale projects that require skilled and high-quality individuals to provide a comprehensive solution to the client's requirements."
-                    }`}
-                  </p>
-                  <p className="font-mono text-xl font-bold text-black px-3 mb-2">
-                    HTML | Taildwind CSS | JavaScript | NextJs{" "}
-                  </p>
-                  <Link href="https://codepartners.com.co/" target="_blank">
-                    <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
-                      {`${
-                        language !== true ? `Visitar página >` : `Visit page >`
-                      }`}
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
         </Section>
       </section>
 
       <section
         id="contact"
-        className=" md:bg-[#6E07F3] py-5 w-screen md:h-[auto] mt-5 "
+        className=" md:bg-[#6E07F3] py-5 w-full md:h-[auto] mt-5 "
       >
         <Section>
           <div className="md:h-auto md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
@@ -403,7 +311,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#00A887] w-full h-full px-10 py-5">
-        <div className="text-white flex  md:flex-col items-center gap-5">
+        <div className="text-white flex  md:flex-col items-center justify-center gap-5">
           <div className="flex gap-1 items-center md:gap-12">
             <Link href="https://github.com/LucasChanquia/" target="_blank">
               <Image

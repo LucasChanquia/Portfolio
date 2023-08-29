@@ -20,7 +20,7 @@ const ContactEn = () => {
             method="POST"
           >
             <label
-              for="name"
+              htmlFor="name"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Name
@@ -34,7 +34,7 @@ const ContactEn = () => {
             />
 
             <label
-              for="email"
+              htmlFor="email"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Email
@@ -57,7 +57,7 @@ const ContactEn = () => {
               />
             </div>
             <label
-              for="textarea"
+              htmlFor="textarea"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Mesagge
