@@ -29,7 +29,7 @@
     description: 'Countries es una aplicación basada en una API que brinda información sobre 250 países. En el mismo se puede filtrar por distintos ítems además de poder agregarles actividades turisticas.',
     descriptionEn: "Countries is an API-based application that provides information about 250 countries. In it, you can filter by different items and also add tourist activities.",
     technologies: 'HTML | CSS | JavaScript | React | Node Js | Redux | PosgreSQL | Sequelize',
-    link: 'https://cr-pi-countries-main-pi.vercel.app/home'
+    link: 'https://cr-pi-countries-main-pi.vercel.app/'
   }
 ];
 
