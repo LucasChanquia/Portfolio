@@ -5,7 +5,7 @@ import Image from "next/image";
 const Contact = () => {
   return (
     <>
-      <div className="bg-[#6E07F3] mx-3 rounded-2xl grid md:grid-cols-2 h-[800px] md:h-[500px] w-full">
+      <div className="bg-[#6E07F3] mx-3 rounded-2xl grid md:grid-cols-2 h-[800px]  md:h-[500px] w-full border border-1-indigo-600">
         <div className="flex flex-col items-center justify-center p-5">
           <p className="text-white  text-center text-xl pl-4 md:pt-5">
             ¿Tienes alguna pregunta, idea o proyecto en mente? No dudes en
@@ -22,7 +22,7 @@ const Contact = () => {
             method="POST"
           >
             <label
-              for="name"
+              htmlFor="name"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Nombre
@@ -36,7 +36,7 @@ const Contact = () => {
             />
 
             <label
-              for="email"
+              htmlFor="email"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Email
@@ -59,7 +59,7 @@ const Contact = () => {
               />
             </div>
             <label
-              for="textarea"
+              htmlFor="textarea"
               className="text-white text-sm font-bold leading-tight tracking-normal"
             >
               Mensaje

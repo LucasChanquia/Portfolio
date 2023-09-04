@@ -5,7 +5,7 @@ import Image from "next/image";
 const ContactEn = () => {
   return (
     <>
-      <div className="bg-[#6E07F3] mx-3 rounded-2xl grid md:grid-cols-2 h-[800px] md:h-[500px] w-full">
+      <div className="bg-[#6E07F3] mx-3 rounded-2xl grid md:grid-cols-2 h-[800px] md:h-[500px] w-full border border-1-indigo-600">
         <div className="flex flex-col items-center justify-center p-5">
           <p className="text-white  text-center text-xl pl-4 md:pt-5">
           {`Do you have any questions, ideas, or projects in mind? Don't hesitate to get in touch with me. I look forward to having the opportunity to collaborate with you and create something amazing!`}
