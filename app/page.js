@@ -36,13 +36,13 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
 
   const handleDownload = () => {
-    const fileUrl = "/cv.pdf";
+    const fileName =
+      language !== true ? "CV-LucasChanquía.pdf" : "Resume-LucasChanquia.pdf";
+    const fileUrl = `/${fileName}`;
 
     const link = document.createElement("a");
     link.href = fileUrl;
-    link.download = `${
-      language !== true ? "CV LucasChanquía.pdf" : "CV LucasChanquiaEN.pdf"
-    }`;
+    link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -50,6 +50,9 @@ export default function Home() {
 
   useEffect(() => {
     const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
     const aboutMeSection = document.getElementById("aboutMe");
     const proyectsSection = document.getElementById("proyects");
     const contactSection = document.getElementById("contact");
@@ -151,13 +154,15 @@ export default function Home() {
         <div>
           <ul
             id="lang"
-            className="relative w-screen left-4 md:left-5 text-sm md:text-2xl"
+            className="relative w-screen left-4 md:left-5 pb-10 text-sm md:text-2xl"
           >
-            <li>
-              <button onClick={handlerClickSpanish}>ES</button>
+            <li className="flex gap-2 mb-2">
+              <button onClick={handlerClickSpanish}><Image src="/images/es.png" width={30} height={10} alt="ico" /></button>
+              
             </li>
-            <li>
-              <button onClick={handlerClickEnglish}>EN</button>
+            <li className="flex gap-1">
+              <button onClick={handlerClickEnglish}><Image src="/images/uk.png" width={30} height={10} alt="ico" /></button>
+              
             </li>
           </ul>
         </div>
@@ -234,7 +239,7 @@ export default function Home() {
                 language !== true ? "Stack tecnológico" : "Technological stack"
               }`}</h2>
 
-              <div className="grid md:grid-cols-3 justify-items-center mt-10 gap-2">
+              <div className="grid md:grid-cols-4 justify-items-center mt-10 gap-2">
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
                   <Image
                     src="/images/frontend.png"
@@ -246,7 +251,17 @@ export default function Home() {
                   <h2 className="font-sans text-lg my-5 text-[#00A887]">
                     Front End
                   </h2>
-                  <p id="stack">HTML | CSS | JavaScript | React | NextJs</p>
+                  <p id="stack" className="mb-10 md:mb-0">HTML | CSS | JavaScript | React | NextJs</p>
+                </div>
+
+                <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
+                  <Image
+                    src="/images/UXUI.png"
+                    width={100}
+                    height={100}
+                    alt="ico HTML"
+                    className="rounded-3x1 mx-auto"
+                  />
                   <h2 className="font-sans text-lg my-5 text-[#00A887] md:mt-10">
                     {`${language !== true ? "Diseño UI/UX" : "Design UI/UX"}`}
                   </h2>
@@ -295,13 +310,12 @@ export default function Home() {
           </h2>
 
           <Proyects language={language} />
-
         </Section>
       </section>
 
       <section
         id="contact"
-        className=" md:bg-[#6E07F3] py-5 w-full md:h-[auto] mt-5 "
+        className=" flex  md:bg-[#6E07F3] py-5 w-full lg:h-screen mt-5 justify-center items-center"
       >
         <Section>
           <div className="md:h-auto md:w-[90%] lg:w-[50%] flex justify-center items-center mx-auto ">
