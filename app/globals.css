@@ -50,7 +50,7 @@ body {
 
 
 
-li:hover {
+li:active {
   color: #E5384F;
 }
 
