@@ -86,124 +86,140 @@ export default function Home() {
       id="main"
       className="flex min-h-screen w-screen flex-col items-center"
     >
-      <div
-        id="home"
-        className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
-      >
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-2 z-1 backdrop-blur-md w-full"
-          style={{
-            scaleX: scrollYProgress,
-            background: "#E5384F",
-          }}
-          id="scroll"
-        />
-
-        <nav
-          id="nav"
-          className="w-full fixed top-0 z-0 mt-2  h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg"
+      <section>
+        <div
+          id="home"
+          className="h-screen w-screen flex flex-col justify-center items-center bg-[#3BC3A4]"
         >
-          <div className="flex justify-center">
-            <ul className="flex gap-2 md:gap-10 justify-center items-center ">
-              <Link href="#home">
-                <li
-                  className={`text-sm md:text-2xl font-semibold  ${
-                    currentSection === "home" ? "text-[#E5384F]" : "text-black"
-                  }`}
-                >
-                  Home
-                </li>
-              </Link>
-              <Link href="#aboutMe">
-                <li
-                  className={`text-sm md:text-2xl font-semibold  ${
-                    currentSection === "aboutMe"
-                      ? "text-[#E5384F]"
-                      : "text-black"
-                  }`}
-                >
-                  {` ${language !== true ? "Sobre mi" : "About me"}`}
-                </li>
-              </Link>
-              <Link href="#proyects">
-                <li
-                  className={`text-sm md:text-2xl font-semibold  ${
-                    currentSection === "proyects"
-                      ? "text-[#E5384F]"
-                      : "text-black"
-                  }`}
-                >
-                  {` ${language !== true ? "Proyectos" : "Projects"}`}
-                </li>
-              </Link>
-              <Link href="#contact">
-                <li
-                  className={`text-sm md:text-2xl font-semibold  ${
-                    currentSection === "contact"
-                      ? "text-[#E5384F]"
-                      : "text-black"
-                  }`}
-                >
-                  {` ${language !== true ? "Contacto" : "Contact"}`}
-                </li>
-              </Link>
+          <motion.div
+            className="fixed top-0 left-0 right-0 h-2 z-1 backdrop-blur-md w-full"
+            style={{
+              scaleX: scrollYProgress,
+              background: "#E5384F",
+            }}
+            id="scroll"
+          />
+
+          <nav
+            id="nav"
+            className="w-full fixed top-0 z-0 mt-2  h-[50px] bg-transparent bg-opacity-10 md:p-10 backdrop-blur-lg"
+          >
+            <div className="flex justify-center">
+              <ul className="flex gap-2 md:gap-10 justify-center items-center ">
+                <Link href="#home">
+                  <li
+                    className={`text-sm md:text-2xl font-semibold  ${
+                      currentSection === "home"
+                        ? "text-[#E5384F]"
+                        : "text-black"
+                    }`}
+                  >
+                    Home
+                  </li>
+                </Link>
+                <Link href="#aboutMe">
+                  <li
+                    className={`text-sm md:text-2xl font-semibold  ${
+                      currentSection === "aboutMe"
+                        ? "text-[#E5384F]"
+                        : "text-black"
+                    }`}
+                  >
+                    {` ${language !== true ? "Sobre mi" : "About me"}`}
+                  </li>
+                </Link>
+                <Link href="#proyects">
+                  <li
+                    className={`text-sm md:text-2xl font-semibold  ${
+                      currentSection === "proyects"
+                        ? "text-[#E5384F]"
+                        : "text-black"
+                    }`}
+                  >
+                    {` ${language !== true ? "Proyectos" : "Projects"}`}
+                  </li>
+                </Link>
+                <Link href="#contact">
+                  <li
+                    className={`text-sm md:text-2xl font-semibold  ${
+                      currentSection === "contact"
+                        ? "text-[#E5384F]"
+                        : "text-black"
+                    }`}
+                  >
+                    {` ${language !== true ? "Contacto" : "Contact"}`}
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          </nav>
+
+          <div>
+            <ul
+              id="lang"
+              className="relative w-screen left-4 md:left-5 pb-10 text-sm md:text-2xl"
+            >
+              <li className="flex gap-2 mb-2">
+                <button onClick={handlerClickSpanish}>
+                  <Image
+                    src="/images/es.png"
+                    width={30}
+                    height={10}
+                    alt="ico"
+                  />
+                </button>
+              </li>
+              <li className="flex gap-1">
+                <button onClick={handlerClickEnglish}>
+                  <Image
+                    src="/images/uk.png"
+                    width={30}
+                    height={10}
+                    alt="ico"
+                  />
+                </button>
+              </li>
             </ul>
           </div>
-        </nav>
 
-        <div>
-          <ul
-            id="lang"
-            className="relative w-screen left-4 md:left-5 pb-10 text-sm md:text-2xl"
-          >
-            <li className="flex gap-2 mb-2">
-              <button onClick={handlerClickSpanish}><Image src="/images/es.png" width={30} height={10} alt="ico" /></button>
-              
-            </li>
-            <li className="flex gap-1">
-              <button onClick={handlerClickEnglish}><Image src="/images/uk.png" width={30} height={10} alt="ico" /></button>
-              
-            </li>
-          </ul>
-        </div>
-
-        <div className="flex flex-col gap-2 md:gap-12 md:flex-row md:w-screen justify-center">
-          <div className="flex gap-10 items-center justify-between">
-            <div className="flex flex-col gap-5 items-center text-center justify-items-center">
-              <motion.h1
-                className="text-xl font-bold md:text-4xl text-center w-full"
-                animate={{
-                  x: 50,
-                  color: "#4D3C77",
-                }}
-              >
-                {` ${
-                  language !== true
-                    ? "Hola! Soy Lucas Chanquía"
-                    : "HI! I'm Lucas Chanquía"
-                }`}
-              </motion.h1>
-              <motion.p
-                className="font-mono text-lg md:text-xl text-center mb-5"
-                animate={{
-                  x: 50,
-                  color: "#000000",
-                }}
-              >
-                Full Stack Developer
-              </motion.p>
+          <div className="flex flex-col gap-2 md:gap-12 md:flex-row md:w-screen justify-center">
+            <div className="flex gap-10 items-center justify-between">
+              <div className="flex flex-col gap-5 items-center text-center justify-items-center">
+                <motion.h1
+                  className="text-xl font-bold md:text-4xl text-center w-full"
+                  animate={{
+                    x: 50,
+                    color: "#4D3C77",
+                  }}
+                >
+                  {` ${
+                    language !== true
+                      ? "Hola! Soy Lucas Chanquía"
+                      : "HI! I'm Lucas Chanquía"
+                  }`}
+                </motion.h1>
+                <motion.p
+                  className="font-mono text-lg md:text-xl text-center mb-5"
+                  animate={{
+                    x: 50,
+                    color: "#000000",
+                  }}
+                >
+                  Full Stack Developer
+                </motion.p>
+              </div>
             </div>
-          </div>
 
-          <Image
-            src="/images/image1.png"
-            width={300}
-            height={100}
-            alt="ico avatar"
-            className="w-auto h-auto"
-          />
+            <Image
+              src="/images/image1.png"
+              width={300}
+              height={100}
+              alt="ico avatar"
+              className="w-auto h-auto"
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
       <section id="aboutMe">
         <Section>
@@ -251,7 +267,9 @@ export default function Home() {
                   <h2 className="font-sans text-lg my-5 text-[#00A887]">
                     Front End
                   </h2>
-                  <p id="stack" className="mb-10 md:mb-0">HTML | CSS | JavaScript | React | NextJs</p>
+                  <p id="stack" className="mb-10 md:mb-0">
+                    HTML | CSS | JavaScript | React | NextJs
+                  </p>
                 </div>
 
                 <div className="md:border-r-2 md:border-gray-200 lg:border-transparent  lg:pr-5">
