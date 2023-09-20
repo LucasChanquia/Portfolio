@@ -300,7 +300,7 @@ export default function Home() {
                     Back End
                   </h2>
 
-                  <p id="stack">Express | NodeJs | Redux | Typescript</p>
+                  <p id="stack">Express | NodeJs | Redux | PHP | Typescript</p>
                 </div>
                 <div className="lg:pr-5">
                   <Image
