@@ -37,7 +37,7 @@ export default function Home() {
 
   const handleDownload = () => {
     const fileName =
-      language !== true ? "CV-LucasChanquía.pdf" : "Resume-LucasChanquia.pdf";
+      language !== true ? "CV-LucasChanquia.pdf" : "Resume-LucasChanquia.pdf";
     const fileUrl = `/${fileName}`;
 
     const link = document.createElement("a");
