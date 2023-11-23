@@ -36,13 +36,15 @@ export default function proyects({language}) {
                 <p className="font-mono text-xl font-bold text-black px-3 mb-2">
                   {data.technologies}
                 </p>
-                <Link href={data.link} target="_blank">
+
+               {data.link && <Link href={data.link} target="_blank">
                   <button className="bg-[#3BC3A4] px-4 py-2  mt-5 mb-2 rounded-lg text-white font-semibold">
                     {`${
                       language !== true ? `Visitar página >` : `Visit page >`
                     }`}
                   </button>
                 </Link>
+                }
               </div>
             </div>
           </div>

@@ -345,16 +345,7 @@ export default function Home() {
       <footer className="bg-[#00A887] w-full h-full px-10 py-5">
         <div className="text-white flex  md:flex-col items-center justify-center gap-5">
           <div className="flex gap-1 items-center md:gap-12">
-            <Link href="https://github.com/LucasChanquia/" target="_blank">
-              <Image
-                src="/images/github.png"
-                width={50}
-                height={50}
-                alt="ico github"
-                className="rounded-[50%] hover:scale-110"
-              />
-            </Link>
-            <Link
+          <Link
               href="https://www.linkedin.com/in/lucas-chanquia/"
               target="_blank"
             >
@@ -375,7 +366,7 @@ export default function Home() {
                 className="rounded-[50%] hover:scale-110"
               />
             </Link>
-            <Link href="https://w.app/lucasChanquia" target="_blank">
+            <Link href="https://wa.me/5493515118325/?text=Hola!%20Vi%20tu%20portfolio%20y%20estoy%20interesado%20en%20conectar%20contigo" target="_blank">
               <Image
                 src="/images/whatsapp.png"
                 width={50}
@@ -390,6 +381,15 @@ export default function Home() {
                 width={50}
                 height={50}
                 alt="ico correo"
+                className="rounded-[50%] hover:scale-110"
+              />
+            </Link>
+            <Link href="https://github.com/LucasChanquia/" target="_blank">
+              <Image
+                src="/images/github.png"
+                width={50}
+                height={50}
+                alt="ico github"
                 className="rounded-[50%] hover:scale-110"
               />
             </Link>
